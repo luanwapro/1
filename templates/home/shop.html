@@ -1,0 +1,832 @@
+{% load static %}
+{% load custom_filter %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Shop</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="OneTech shop project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link href="{% static 'plugins/fontawesome-free-5.0.1/css/fontawesome-all.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/jquery-ui-1.12.1.custom/jquery-ui.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/shop_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/shop_responsive.css' %}">
+
+</head>
+
+<body>
+
+<div class="super_container">
+	
+	<!-- Header -->
+	
+	<header class="header">
+
+		<!-- Top Bar -->
+
+		<div class="top_bar">
+			<div class="container">
+				<div class="row">
+					<div class="col d-flex flex-row">
+						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{% static 'images/phone.png' %}" alt=""></div>+84 3745 1155 </div>
+						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{% static 'images/mail.png' %}" alt=""></div><a href="mailto:fastsales@gmail.com">linhvip1998@gmail.com</a></div>
+						<div class="top_bar_content ml-auto">
+							<div class="top_bar_user">
+								<div class="user_icon"><img src="{% static 'images/user.svg' %}" alt=""></div>
+								{% if user.username %}
+                                    <div><a>Xin chào {{ user.username }}</a></div>
+                                    <div><a href="logout">Đăng xuất</a></div>
+                                 {% else %}
+                                  <div><a href=login>Đăng nhập</a></div>
+								<div><a style="cursor: pointer" onclick="dangky()">Đăng ký</a></div>
+                                {% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</div>
+
+		<!-- Header Main -->
+
+    <style>
+	.fixed
+	{
+		position: fixed;
+		z-index: 100000;
+		top: 0px;
+		background-color: #FFFFFF;
+		width: 100%;
+	}
+</style>
+		<div class="header_main" id="keochuot">
+			<div class="container">
+				<div class="row">
+
+					<!-- Logo -->
+					<div class="col-lg-2 col-sm-3 col-3 order-1">
+						<div class="logo_container">
+							<div class="logo"><a href="#">ViLo'sTech</a></div>
+						</div>
+					</div>
+
+					<!-- Search -->
+					<div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
+						<div class="header_search">
+							<div class="header_search_content">
+								<div class="header_search_form_container">
+									<form method="GET" action="{% url 'search' %}" class="header_search_form clearfix">
+										<input type="search" name="q" value="{{ request.GET.q }}" required="required" class="header_search_input" placeholder="Tìm sản phẩm...">
+										<div class="custom_dropdown">
+											<div class="custom_dropdown_list">
+												<span class="custom_dropdown_placeholder clc">Tất cả loại sản phẩm</span>
+												<i class="fas fa-chevron-down"></i>
+												<ul class="custom_list clc">
+													{% for parent in parents %}
+													<li><a class="clc" href="#">{{ parent.title }}</a></li>
+                                                    {% endfor %}
+												</ul>
+											</div>
+										</div>
+										<button type="submit" class="header_search_button trans_300" value="Submit"><img src="{% static 'images/search.png'%}" alt=""></button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Wishlist -->
+					<div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
+						<div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
+
+							<!-- Cart -->
+							<div class="cart">
+								<div class="cart_container d-flex flex-row align-items-center justify-content-end">
+									<div class="cart_icon">
+										<img src="{% static 'images/cart.png' %}" alt="">
+										<div class="cart_count"><span id="sl"></span></div>
+									</div>
+									<div class="cart_content">
+										<div class="cart_text"><a style="cursor: pointer" onclick="kiemtradangnhap()">Giỏ hàng</a></div>
+										<div class="cart_price" id="gia"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Main Navigation -->
+
+		<nav class="main_nav">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						
+						<div class="main_nav_content d-flex flex-row">
+
+							<!-- Categories Menu -->
+
+							<div class="cat_menu_container">
+								<div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
+									<div class="cat_burger"><span></span><span></span><span></span></div>
+									<div class="cat_menu_text">Loại sản phẩm</div>
+								</div>
+
+								<ul class="cat_menu">
+                                     {%  for parent in parents %}
+									<li class="hassubs">
+										<a href="/home/{{ parent.id }}">{{ parent.title }}<i class="fas fa-chevron-right"></i></a>
+										<ul>
+                                            {% for child in parent.id|getChilds %}
+											<li class="hassubs">
+												<a href="/home/{{ child.id }}">{{ child.title }}<i class="fas fa-chevron-right"></i></a>
+											</li>
+                                             {% endfor %}
+										</ul>
+									</li>
+                                     {% endfor %}
+								</ul>
+							</div>
+
+							<!-- Main Nav Menu -->
+
+							<div class="main_nav_menu ml-auto">
+								<ul class="standard_dropdown main_nav_dropdown">
+									<li><a href="#">Trang chủ<i class="fas fa-chevron-down"></i></a></li>
+									<li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
+									<li><a href="contact.html">Liên hệ<i class="fas fa-chevron-down"></i></a></li>
+								</ul>
+							</div>
+
+							<!-- Menu Trigger -->
+
+							<div class="menu_trigger_container ml-auto">
+								<div class="menu_trigger d-flex flex-row align-items-center justify-content-end">
+									<div class="menu_burger">
+										<div class="menu_trigger_text">menu</div>
+										<div class="cat_burger menu_burger_inner"><span></span><span></span><span></span></div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		
+		<!-- Menu -->
+
+		<div class="page_menu">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						
+						<div class="page_menu_content">
+							
+							<div class="page_menu_search">
+								<form action="#">
+									<input type="search" required="required" class="page_menu_search_input" placeholder="Search for products...">
+								</form>
+							</div>
+							<ul class="page_menu_nav">
+								<li class="page_menu_item has-children">
+									<a href="#">Language<i class="fa fa-angle-down"></i></a>
+									<ul class="page_menu_selection">
+										<li><a href="#">English<i class="fa fa-angle-down"></i></a></li>
+										<li><a href="#">Italian<i class="fa fa-angle-down"></i></a></li>
+										<li><a href="#">Spanish<i class="fa fa-angle-down"></i></a></li>
+										<li><a href="#">Japanese<i class="fa fa-angle-down"></i></a></li>
+									</ul>
+								</li>
+								<li class="page_menu_item has-children">
+									<a href="#">Currency<i class="fa fa-angle-down"></i></a>
+									<ul class="page_menu_selection">
+										<li><a href="#">US Dollar<i class="fa fa-angle-down"></i></a></li>
+										<li><a href="#">EUR Euro<i class="fa fa-angle-down"></i></a></li>
+										<li><a href="#">GBP British Pound<i class="fa fa-angle-down"></i></a></li>
+										<li><a href="#">JPY Japanese Yen<i class="fa fa-angle-down"></i></a></li>
+									</ul>
+								</li>
+								<li class="page_menu_item">
+									<a href="#">Home<i class="fa fa-angle-down"></i></a>
+								</li>
+								<li class="page_menu_item has-children">
+									<a href="#">Super Deals<i class="fa fa-angle-down"></i></a>
+									<ul class="page_menu_selection">
+										<li><a href="#">Super Deals<i class="fa fa-angle-down"></i></a></li>
+										<li class="page_menu_item has-children">
+											<a href="#">Menu Item<i class="fa fa-angle-down"></i></a>
+											<ul class="page_menu_selection">
+												<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
+												<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
+												<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
+												<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
+											</ul>
+										</li>
+										<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
+										<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
+										<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
+									</ul>
+								</li>
+								<li class="page_menu_item has-children">
+									<a href="#">Featured Brands<i class="fa fa-angle-down"></i></a>
+									<ul class="page_menu_selection">
+										<li><a href="#">Featured Brands<i class="fa fa-angle-down"></i></a></li>
+										<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
+										<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
+										<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
+									</ul>
+								</li>
+								<li class="page_menu_item has-children">
+									<a href="#">Trending Styles<i class="fa fa-angle-down"></i></a>
+									<ul class="page_menu_selection">
+										<li><a href="#">Trending Styles<i class="fa fa-angle-down"></i></a></li>
+										<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
+										<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
+										<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
+									</ul>
+								</li>
+								<li class="page_menu_item"><a href="blog.html">blog<i class="fa fa-angle-down"></i></a></li>
+								<li class="page_menu_item"><a href="contact.html">contact<i class="fa fa-angle-down"></i></a></li>
+							</ul>
+							
+							<div class="menu_contact">
+								<div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/phone_white.png" alt=""></div>+38 068 005 3570</div>
+								<div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/mail_white.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</header>
+	
+	<!-- Home -->
+
+	<div class="home">
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="images/shop_background.jpg"></div>
+		<div class="home_overlay"></div>
+		<div class="home_content d-flex flex-column align-items-center justify-content-center">
+			<h2 class="home_title">{{ cate.title  }}</h2>
+		</div>
+	</div>
+
+	<!-- Shop -->
+
+	<div class="shop">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+
+					<!-- Shop Sidebar -->
+					<div class="shop_sidebar">
+						<div class="sidebar_section">
+							<div class="sidebar_title">Loại sản phẩm</div>
+							<ul class="sidebar_categories">
+
+                                {% for parent in parents %}
+								<li><a href="/home/{{ parent.id }}">{{ parent.title }}</a></li>
+								{% endfor %}
+							</ul>
+						</div>
+						<div class="sidebar_section filter_by_section">
+							<div class="sidebar_title">Liệt kê theo</div>
+							<div class="sidebar_subtitle">Giá</div>
+							<div class="filter_price">
+								<div id="slider-range" class="slider_range"></div>
+								<p>Giới hạn: </p>
+								<p><input type="text" id="amount" class="amount" readonly style="border:0; font-weight:bold;"></p>
+							</div>
+						</div>
+						<div class="sidebar_section">
+							<div class="sidebar_subtitle brands_subtitle">Brands</div>
+							<ul class="brands_list">
+								<li class="brand"><a href="#">Apple</a></li>
+								<li class="brand"><a href="#">Beoplay</a></li>
+								<li class="brand"><a href="#">Google</a></li>
+								<li class="brand"><a href="#">Meizu</a></li>
+								<li class="brand"><a href="#">OnePlus</a></li>
+								<li class="brand"><a href="#">Samsung</a></li>
+								<li class="brand"><a href="#">Sony</a></li>
+								<li class="brand"><a href="#">Xiaomi</a></li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-lg-9">
+					
+					<!-- Shop Content -->
+
+					<div class="shop_content">
+						<div class="shop_bar clearfix">
+							<div class="shop_product_count"><span>{{ dem }}</span> sản phẩm tìm thấy</div>
+							<div class="shop_sorting">
+								<span>Sắp xếp theo:</span>
+								<ul>
+									<li>
+                                        <span class="sorting_text">đánh giá cao nhất<i class="fas fa-chevron-down"></i></span>
+										<ul>
+											<li class="shop_sorting_button" data-isotope-option='{ "sortBy": "original-order" }'>đánh giá cao nhất</li>
+											<li class="shop_sorting_button" data-isotope-option='{ "sortBy": "name" }'>tên</li>
+											<li class="shop_sorting_button"data-isotope-option='{ "sortBy": "price" }'>giá</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="product_grid">
+							<div class="product_grid_border"></div>
+
+
+
+							<!-- Product Item -->
+                            {% for item in featureItems %}
+                                {% if item.sale_price <= 0 %}
+							<div class="product_item" onmouseover="nhapa(idbt={{ item.id }})" onmouseout="nhapb(idbt={{ item.id }})">
+								<div class="product_border"></div>
+                                <div class="product_image d-flex flex-column align-items-center justify-content-center"><a href="product/{{ item.id }}"><img src="{{item.image1.url}}"  alt=""></a></div>
+								<div class="product_content">
+									<div class="product_price">{{ item.price }}</div>
+									<div class="product_name"><div><a href="product/{{ item.id }}" tabindex="0">{{ item.title }}</a></div></div>
+								</div>
+								<div class="product_fav"><i class="fas fa-heart"></i></div>
+								<ul class="product_marks">
+									<li class="product_mark product_discount">-25%</li>
+									<li class="product_mark product_new">new</li>
+								</ul>
+
+
+                            <button class="product_cart_button"  id="{{ item.id }}" onclick="them(id1={{ item.id }})" >Thêm vào giỏ hàng</button>
+                            </div>
+
+
+							<!-- Product Item -->
+                                {% else %}
+                                    {% for temp in sale %}
+                                        {% if item.id == temp.id %}
+							<div class="product_item discount" onmouseover="nhapa(idbt={{ item.id }})" onmouseout="nhapb(idbt={{ item.id }})">
+								<div class="product_border"></div>
+								<div class="product_image d-flex flex-column align-items-center justify-content-center"><a href="product/{{ item.id }}"><img src="{{item.image1.url}}"  alt=""></a></div>
+								<div class="product_content">
+									<div class="product_price">{{ temp.sale }}đ<span>{{ item.price }}</span></div>
+									<div class="product_name"><div><a href="product/{{ item.id }}" tabindex="0">{{ item.title }}</a></div></div>
+								</div>
+								<div class="product_fav"><i class="fas fa-heart"></i></div>
+								<ul class="product_marks">
+									<li class="product_mark product_discount">-{{ item.sale_price }}%</li>
+									<li class="product_mark product_new">new</li>
+								</ul>
+                            <button class="product_cart_button"  id="{{ item.id }}" onclick="them(id1={{ item.id }})" >Thêm vào giỏ hàng</button>
+							</div>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+						</div>
+                            <style>
+								.product_cart_button
+								{
+									border-bottom-left-radius: 5px;
+									border-bottom-right-radius:5px;
+									background-color: #0e8ce4;
+									    position: relative;
+									visibility: hidden;
+                                     left: 0px;
+                                    border: none;
+                                    outline: none;
+                                    font-size: 18px;
+                                    font-weight: 400;
+                                    color: #FFFFFF;
+                                    cursor: pointer;
+								}
+							</style>
+
+
+
+
+                                <script>
+								function nhapa() {
+									$('#'+idbt).css("height","48px");
+									$('#'+idbt).css("width","100%");
+									$('#'+idbt).css("visibility","visible");
+								}
+								function nhapb() {
+									$('#'+idbt).css("visibility","hidden");
+								}
+							</script>
+						<!-- Shop Page Navigation -->
+
+						<div class="shop_page_nav d-flex flex-row">
+                             {% if featureItems.has_previous %}
+							<div class="page_prev d-flex flex-column align-items-center justify-content-center">
+                                <a href="?page={{ featureItems.previous_page_number }}{% if query %}&q={{ query }}{% endif %}"><i class="fas fa-chevron-left"></i></a>
+                            </div>
+                            {% endif %}
+                            <ul class="page_nav d-flex flex-row">
+                                {% for i in featureItems.paginator.page_range %}
+								        <li><a href="?page={{ i }}{% if query %}&q={{ query }}{% endif %}">{{ i }}</a></li>
+                                {% endfor %}
+							</ul>
+                            {% if featureItems.has_next %}
+                            <div class="page_next d-flex flex-column align-items-center justify-content-center">
+                                <a href="?page={{ featureItems.next_page_number }}{% if query %}&q={{ query }}{% endif %}"><i class="fas fa-chevron-right"></i></a>
+                            </div>
+						    {% endif %}
+                        </div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Recently Viewed -->
+
+	<div class="viewed">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="viewed_title_container">
+						<h3 class="viewed_title">Xem Gần Đây</h3>
+						<div class="viewed_nav_container">
+							<div class="viewed_nav viewed_prev"><i class="fas fa-chevron-left"></i></div>
+							<div class="viewed_nav viewed_next"><i class="fas fa-chevron-right"></i></div>
+						</div>
+					</div>
+
+					<div class="viewed_slider_container">
+						
+						<!-- Recently Viewed Slider -->
+
+						<div class="owl-carousel owl-theme viewed_slider">
+							
+							<!-- Recently Viewed Item -->
+							<div class="owl-item">
+								<div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+									<div class="viewed_image"><img src="images/view_1.jpg" alt=""></div>
+									<div class="viewed_content text-center">
+										<div class="viewed_price">$225<span>$300</span></div>
+										<div class="viewed_name"><a href="#">Beoplay H7</a></div>
+									</div>
+									<ul class="item_marks">
+										<li class="item_mark item_discount">-25%</li>
+										<li class="item_mark item_new">new</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Recently Viewed Item -->
+							<div class="owl-item">
+								<div class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
+									<div class="viewed_image"><img src="images/view_2.jpg" alt=""></div>
+									<div class="viewed_content text-center">
+										<div class="viewed_price">$379</div>
+										<div class="viewed_name"><a href="#">LUNA Smartphone</a></div>
+									</div>
+									<ul class="item_marks">
+										<li class="item_mark item_discount">-25%</li>
+										<li class="item_mark item_new">new</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Recently Viewed Item -->
+							<div class="owl-item">
+								<div class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
+									<div class="viewed_image"><img src="images/view_3.jpg" alt=""></div>
+									<div class="viewed_content text-center">
+										<div class="viewed_price">$225</div>
+										<div class="viewed_name"><a href="#">Samsung J730F...</a></div>
+									</div>
+									<ul class="item_marks">
+										<li class="item_mark item_discount">-25%</li>
+										<li class="item_mark item_new">new</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Recently Viewed Item -->
+							<div class="owl-item">
+								<div class="viewed_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+									<div class="viewed_image"><img src="images/view_4.jpg" alt=""></div>
+									<div class="viewed_content text-center">
+										<div class="viewed_price">$379</div>
+										<div class="viewed_name"><a href="#">Huawei MediaPad...</a></div>
+									</div>
+									<ul class="item_marks">
+										<li class="item_mark item_discount">-25%</li>
+										<li class="item_mark item_new">new</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Recently Viewed Item -->
+							<div class="owl-item">
+								<div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+									<div class="viewed_image"><img src="images/view_5.jpg" alt=""></div>
+									<div class="viewed_content text-center">
+										<div class="viewed_price">$225<span>$300</span></div>
+										<div class="viewed_name"><a href="#">Sony PS4 Slim</a></div>
+									</div>
+									<ul class="item_marks">
+										<li class="item_mark item_discount">-25%</li>
+										<li class="item_mark item_new">new</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Recently Viewed Item -->
+							<div class="owl-item">
+								<div class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
+									<div class="viewed_image"><img src="images/view_6.jpg" alt=""></div>
+									<div class="viewed_content text-center">
+										<div class="viewed_price">$375</div>
+										<div class="viewed_name"><a href="#">Speedlink...</a></div>
+									</div>
+									<ul class="item_marks">
+										<li class="item_mark item_discount">-25%</li>
+										<li class="item_mark item_new">new</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Brands -->
+
+	<div class="brands">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="brands_slider_container">
+						
+						<!-- Brands Slider -->
+
+						<div class="owl-carousel owl-theme brands_slider">
+							
+							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{% static 'images/brands_1.jpg' %}" alt=""></div></div>
+							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{% static 'images/brands_2.jpg' %}" alt=""></div></div>
+							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{% static 'images/brands_3.jpg' %}" alt=""></div></div>
+							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{% static 'images/brands_4.jpg' %}" alt=""></div></div>
+							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{% static 'images/brands_5.jpg' %}" alt=""></div></div>
+							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{% static 'images/brands_6.jpg' %}" alt=""></div></div>
+							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{% static 'images/brands_7.jpg' %}" alt=""></div></div>
+							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{% static 'images/brands_8.jpg' %}" alt=""></div></div>
+
+						</div>
+						
+						<!-- Brands Slider Navigation -->
+						<div class="brands_nav brands_prev"><i class="fas fa-chevron-left"></i></div>
+						<div class="brands_nav brands_next"><i class="fas fa-chevron-right"></i></div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Newsletter -->
+
+	<div class="newsletter">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="newsletter_container d-flex flex-lg-row flex-column align-items-lg-center align-items-center justify-content-lg-start justify-content-center">
+						<div class="newsletter_title_container">
+							<div class="newsletter_icon"><img src="{% static 'images/send.png' %}" alt=""></div>
+							<div class="newsletter_title">Đăng ký để nhận khuyến mãi</div>
+							<div class="newsletter_text"><p>...và nhận phiếu giảm giá 20% cho lần đầu tiên mua sắm.</p></div>
+						</div>
+						<div class="newsletter_content clearfix">
+							<form action="#" class="newsletter_form">
+								<input type="email" class="newsletter_input" required="required" placeholder="Enter your email address">
+								<button class="newsletter_button">Subscribe</button>
+							</form>
+							<div class="newsletter_unsubscribe_link"><a href="#">unsubscribe</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-lg-3 footer_col">
+					<div class="footer_column footer_contact">
+						<div class="logo_container">
+							<div class="logo"><a href="#">ViLo'sTech</a></div>
+						</div>
+						<div class="footer_title">Got Question? Call Us 24/7</div>
+						<div class="footer_phone">+84 37445 1155</div>
+						<div class="footer_contact_text">
+							<p>Đường Nguyễn Huệ, phường 2 thành phố Vĩnh Long</p>
+							<p>Trường Sư phạm Kỹ thuật Vĩnh Long, VN</p>
+						</div>
+						<div class="footer_social">
+							<ul>
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+								<li><a href="#"><i class="fab fa-google"></i></a></li>
+								<li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 offset-lg-2">
+					<div class="footer_column">
+						<div class="footer_title">Find it Fast</div>
+						<ul class="footer_list">
+							<li><a href="#">Computers & Laptops</a></li>
+							<li><a href="#">Cameras & Photos</a></li>
+							<li><a href="#">Hardware</a></li>
+							<li><a href="#">Smartphones & Tablets</a></li>
+							<li><a href="#">TV & Audio</a></li>
+						</ul>
+						<div class="footer_subtitle">Gadgets</div>
+						<ul class="footer_list">
+							<li><a href="#">Car Electronics</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-lg-2">
+					<div class="footer_column">
+						<ul class="footer_list footer_list_2">
+							<li><a href="#">Video Games & Consoles</a></li>
+							<li><a href="#">Accessories</a></li>
+							<li><a href="#">Cameras & Photos</a></li>
+							<li><a href="#">Hardware</a></li>
+							<li><a href="#">Computers & Laptops</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-lg-2">
+					<div class="footer_column">
+						<div class="footer_title">Customer Care</div>
+						<ul class="footer_list">
+							<li><a href="#">My Account</a></li>
+							<li><a href="#">Order Tracking</a></li>
+							<li><a href="#">Wish List</a></li>
+							<li><a href="#">Customer Services</a></li>
+							<li><a href="#">Returns / Exchange</a></li>
+							<li><a href="#">FAQs</a></li>
+							<li><a href="#">Product Support</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</footer>
+
+	<!-- Copyright -->
+
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					
+					<div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
+						<div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</div>
+						<div class="logos ml-sm-auto">
+							<ul class="logos_list">
+								<li><a href="#"><img src="{% static 'images/logos_1.png' %}" alt=""></a></li>
+								<li><a href="#"><img src="{% static 'images/logos_2.png' %}" alt=""></a></li>
+								<li><a href="#"><img src="{% static 'images/logos_3.png' %}" alt=""></a></li>
+								<li><a href="#"><img src="{% static 'images/logos_4.png' %}" alt=""></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
+<script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/Isotope/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'plugins/jquery-ui-1.12.1.custom/jquery-ui.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'js/shop_custom.js' %}"></script>
+
+<script>
+    var  user='{{ user.id }}';
+     var i=0;
+     var tong= 0;
+    function them() {
+        if(user=="None")
+          alert("Bạn vui lòng đăng nhập để thêm sản phẩm")
+        else {
+          {#document.getElementById("gia").innerHTML = tong ;#}
+          $.get("add/", {id: id1, user: user,soluong:1}, function (data) {
+              alert("Sản phẩm đã được thêm");
+          });
+      }
+    }
+
+
+
+window.onload=soluong;
+    setTimeout(soluong,200);
+    function soluong() {
+        $.get("xulysoluong/", {ten:{{ user.id }}}, function (data) {
+            document.getElementById("sl").innerHTML = data;
+        });
+
+        setTimeout(soluong, 200);
+    }
+
+
+</script>
+<script>
+    function kiemtradangnhap(){
+        var a = "{{ user.id }}";
+        if(a=="None")
+        {
+            alert("Vui lòng đăng nhập");
+        }
+        else
+        {
+            var cate = "{{ cate.id }}";
+            if(cate!="None")
+            var  temp=cate.charAt(0);
+            if(temp=="1"||temp=="2"||temp=="3"||temp=="4"||temp=="5"||temp=="6"||temp=="7"||temp=="8"||temp=="9")
+            {
+                window.location= "../cart/{{user.id}} ";
+            }
+            else if(cate=="None")
+                window.location= "../cart/{{user.id}} ";
+            else
+                window.location= "cart/{{user.id}} ";
+        }
+    }
+    function dangky(){
+        var a = "{{ cate.id }}";
+        if(a=="")
+        {
+            window.location= "register/";
+        }
+        else
+        {
+            window.location= "../register/";
+        }
+
+    }
+
+</script>
+<script>
+    var vt=$('#keochuot').position();
+$(window).scroll(function () {
+	var vitri = $(document).scrollTop();
+	if(parseInt(vitri)>parseInt(vt.top))
+	{
+   $('#keochuot').addClass('fixed');
+
+	}
+	else
+	{
+		$('#keochuot').removeClass('fixed');
+	}
+});
+</script>
+</body>
+</html>

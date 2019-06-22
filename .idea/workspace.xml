@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="52e5d9ae-9667-468e-971f-0f9fc78e76f9" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/home/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="244">
+              <caret line="62" column="11" selection-start-line="62" selection-start-column="11" selection-end-line="62" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/home/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="129">
+              <caret line="519" column="35" selection-start-line="519" selection-start-column="35" selection-end-line="519" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#52#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/home/ChiTietDonHang.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="349">
+              <caret line="160" column="39" selection-start-line="160" selection-start-column="39" selection-end-line="160" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/home/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="38" column="53" lean-forward="true" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BanHangOnline/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="28" column="115" lean-forward="true" selection-start-line="28" selection-start-column="115" selection-end-line="28" selection-end-column="115" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>col-lg-5 order-lg-2 order-1</find>
+      <find>col-lg-2 order-lg-1 order-2</find>
+      <find>product_name</find>
+      <find>Register</find>
+      <find>product_cart_button</find>
+      <find>id</find>
+      <find>the</find>
+      <find>button cart_button</find>
+      <find>quantity_input</find>
+      <find>cart_list</find>
+      <find>quantity_inc_button</find>
+      <find>sidebar_subtitle</find>
+      <find>body</find>
+      <find>ShipDetailSuccess</find>
+      <find>ListShip</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/home/templatetags/custom_filter.py" />
+        <option value="$PROJECT_DIR$/templates/home/index.html" />
+        <option value="$PROJECT_DIR$/home/froms.py" />
+        <option value="$PROJECT_DIR$/templates/home/dangkyshipper.html" />
+        <option value="$PROJECT_DIR$/templates/home/dangnhap.html" />
+        <option value="$PROJECT_DIR$/home/forms.py" />
+        <option value="$PROJECT_DIR$/home/admin.py" />
+        <option value="$PROJECT_DIR$/templates/home/temp.html" />
+        <option value="$PROJECT_DIR$/home/models.py" />
+        <option value="$PROJECT_DIR$/templates/home/loginship.html" />
+        <option value="$PROJECT_DIR$/templates/home/temp2.html" />
+        <option value="$PROJECT_DIR$/templates/home/ShipList.html" />
+        <option value="$PROJECT_DIR$/templates/home/ChiTietDonHang.html" />
+        <option value="$PROJECT_DIR$/BanHangOnline/urls.py" />
+        <option value="$PROJECT_DIR$/templates/home/hoadon.html" />
+        <option value="$PROJECT_DIR$/templates/home/thanhtoan.html" />
+        <option value="$PROJECT_DIR$/templates/home/cart.html" />
+        <option value="$PROJECT_DIR$/templates/home/product.html" />
+        <option value="$PROJECT_DIR$/BanHangOnline/settings.py" />
+        <option value="$PROJECT_DIR$/templates/home/dangky.html" />
+        <option value="$PROJECT_DIR$/home/urls.py" />
+        <option value="$PROJECT_DIR$/templates/home/shop.html" />
+        <option value="$PROJECT_DIR$/home/views.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1026" />
+    <option name="height" value="546" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="BanHangOnline" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BanHangOnline" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BanHangOnline" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BanHangOnline" type="462c0819:PsiDirectoryNode" />
+              <item name="BanHangOnline" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BanHangOnline" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BanHangOnline" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BanHangOnline" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BanHangOnline" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BanHangOnline" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BanHangOnline" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BanHangOnline" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BanHangOnline" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BanHangOnline" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BanHangOnline" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\PycharmProjects\BanHangOnline\templates\home" />
+      <recent name="C:\Users\Administrator\PycharmProjects\BanHangOnline\home\static\images" />
+      <recent name="C:\Users\Administrator\PycharmProjects\BanHangOnline\home" />
+      <recent name="C:\Users\Administrator\PycharmProjects\BanHangOnline\home\static\styles" />
+      <recent name="C:\Users\Administrator\PycharmProjects\BanHangOnline\home\static" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="BanHangOnline" type="Python.DjangoServer" factoryName="Django server">
+      <module name="BanHangOnline" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="52e5d9ae-9667-468e-971f-0f9fc78e76f9" name="Default Changelist" comment="" />
+      <created>1555939067098</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1555939067098</updated>
+      <workItem from="1555939070950" duration="952000" />
+      <workItem from="1556020664157" duration="6780000" />
+      <workItem from="1556039686640" duration="935000" />
+      <workItem from="1556078186288" duration="6308000" />
+      <workItem from="1556101419386" duration="89000" />
+      <workItem from="1556121044070" duration="2713000" />
+      <workItem from="1556352635578" duration="1211000" />
+      <workItem from="1556357373390" duration="627000" />
+      <workItem from="1556538681412" duration="1438000" />
+      <workItem from="1556543171509" duration="596000" />
+      <workItem from="1556709423332" duration="2605000" />
+      <workItem from="1556724282760" duration="7422000" />
+      <workItem from="1556872789376" duration="9929000" />
+      <workItem from="1556898655836" duration="3956000" />
+      <workItem from="1556933655650" duration="454000" />
+      <workItem from="1556957571214" duration="1718000" />
+      <workItem from="1557035927030" duration="3813000" />
+      <workItem from="1557055226805" duration="1574000" />
+      <workItem from="1557064455594" duration="20130000" />
+      <workItem from="1557127324173" duration="9312000" />
+      <workItem from="1557161573066" duration="1660000" />
+      <workItem from="1557220874199" duration="9922000" />
+      <workItem from="1557232017025" duration="551000" />
+      <workItem from="1557285341418" duration="4531000" />
+      <workItem from="1557293549748" duration="11492000" />
+      <workItem from="1557305182148" duration="615000" />
+      <workItem from="1557305897802" duration="473000" />
+      <workItem from="1557306879419" duration="3135000" />
+      <workItem from="1557320433252" duration="911000" />
+      <workItem from="1557322321880" duration="562000" />
+      <workItem from="1557338540062" duration="3355000" />
+      <workItem from="1557342233775" duration="4414000" />
+      <workItem from="1557381365446" duration="20540000" />
+      <workItem from="1557402465466" duration="6631000" />
+      <workItem from="1557411330016" duration="7368000" />
+      <workItem from="1557467625151" duration="19441000" />
+      <workItem from="1557489835290" duration="271000" />
+      <workItem from="1557501735296" duration="8121000" />
+      <workItem from="1557554423444" duration="6620000" />
+      <workItem from="1557561330164" duration="3870000" />
+      <workItem from="1557566273146" duration="11000" />
+      <workItem from="1557588632376" duration="556000" />
+      <workItem from="1557754672485" duration="525000" />
+      <workItem from="1557807531694" duration="178000" />
+      <workItem from="1557835896848" duration="869000" />
+      <workItem from="1558169817339" duration="1039000" />
+      <workItem from="1558172354525" duration="3737000" />
+      <workItem from="1558426886597" duration="3308000" />
+      <workItem from="1558842129289" duration="14771000" />
+      <workItem from="1558858883039" duration="191000" />
+      <workItem from="1558942591258" duration="981000" />
+      <workItem from="1558946771445" duration="2757000" />
+      <workItem from="1559021279198" duration="5083000" />
+      <workItem from="1559126339520" duration="5540000" />
+      <workItem from="1559273223744" duration="2437000" />
+      <workItem from="1559302553125" duration="3811000" />
+      <workItem from="1559310318315" duration="2392000" />
+      <workItem from="1559313132873" duration="256000" />
+      <workItem from="1559370444762" duration="2894000" />
+      <workItem from="1559449172581" duration="1100000" />
+      <workItem from="1559459258205" duration="338000" />
+      <workItem from="1559615640689" duration="6753000" />
+      <workItem from="1559626716921" duration="14941000" />
+      <workItem from="1559655856723" duration="517000" />
+      <workItem from="1559961318765" duration="8272000" />
+      <workItem from="1559974960436" duration="987000" />
+      <workItem from="1559991121525" duration="4778000" />
+      <workItem from="1560045462654" duration="621000" />
+      <workItem from="1560050209976" duration="3983000" />
+      <workItem from="1560067653888" duration="384000" />
+      <workItem from="1560070054675" duration="655000" />
+      <workItem from="1560072738612" duration="3734000" />
+      <workItem from="1560078186596" duration="2498000" />
+      <workItem from="1560138700213" duration="4260000" />
+      <workItem from="1560147555352" duration="7616000" />
+      <workItem from="1560234879616" duration="1072000" />
+      <workItem from="1560246884929" duration="3902000" />
+      <workItem from="1560313095571" duration="14293000" />
+      <workItem from="1560341700092" duration="4118000" />
+      <workItem from="1560352068398" duration="269000" />
+      <workItem from="1560405555763" duration="5570000" />
+      <workItem from="1560411176962" duration="2045000" />
+      <workItem from="1560414149000" duration="8042000" />
+      <workItem from="1561186235915" duration="23632000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="372761000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28214827" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32843137" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32843137" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50378215" side_tool="true" weight="0.32843137" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49621785" visible="true" weight="0.32843137" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32843137" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.32980332" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32980332" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/home/static/styles/bootstrap4/popper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-663" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/index.html" />
+    <entry file="file://$PROJECT_DIR$/home/static/styles/style.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templatetags/custom_filter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/djmoney/models/fields.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3927">
+          <caret line="255" column="53" selection-start-line="255" selection-start-column="53" selection-end-line="255" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/migrations/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/migrations/0015_delete_order.py" />
+    <entry file="file://$PROJECT_DIR$/home/migrations/0017_auto_20190604_1123.py" />
+    <entry file="file://$PROJECT_DIR$/home/migrations/0018_auto_20190604_1126.py" />
+    <entry file="file://$PROJECT_DIR$/home/migrations/0020_auto_20190604_1453.py" />
+    <entry file="file://$PROJECT_DIR$/home/migrations/0005_auto_20190510_2336.py" />
+    <entry file="file://$PROJECT_DIR$/home/migrations/0002_auto_20190501_1850.py" />
+    <entry file="file://$PROJECT_DIR$/home/migrations/0003_cartitem_total_price.py" />
+    <entry file="file://$PROJECT_DIR$/home/migrations/0002_auto_20190610_1146.py" />
+    <entry file="file://$PROJECT_DIR$/home/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/migrations/0001_initial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2177" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/dangnhap.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="27" column="51" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/loginship.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-42">
+          <caret line="27" column="64" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/dangkyshipper.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="6" lean-forward="true" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/temp.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/temp2.html" />
+    <entry file="file://$PROJECT_DIR$/templates/home/ShipList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-187">
+          <caret line="63" column="67" lean-forward="true" selection-start-line="63" selection-start-column="67" selection-end-line="63" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/trang403.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/cart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1487">
+          <caret line="320" column="53" lean-forward="true" selection-start-line="320" selection-start-column="53" selection-end-line="320" selection-end-column="53" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/shop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4289">
+          <caret line="779" column="8" lean-forward="true" selection-start-line="779" selection-start-column="8" selection-end-line="779" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#4;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/thanhtoan.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="133" column="38" selection-start-line="133" selection-start-column="38" selection-end-line="133" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#2;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/product.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="646" column="28" lean-forward="true" selection-start-line="646" selection-start-column="28" selection-end-line="646" selection-end-column="28" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#4;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BanHangOnline/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="136" column="61" selection-start-line="136" selection-start-column="61" selection-end-line="136" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/dangky.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="68" column="17" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/hoadon.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="92" column="79" lean-forward="true" selection-start-line="92" selection-start-column="79" selection-end-line="92" selection-end-column="79" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#2;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#th#1;n#tr#1;n#table#0;n#div#0;n#center#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="38" column="53" lean-forward="true" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BanHangOnline/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="28" column="115" lean-forward="true" selection-start-line="28" selection-start-column="115" selection-end-line="28" selection-end-column="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="62" column="11" selection-start-line="62" selection-start-column="11" selection-end-line="62" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/ChiTietDonHang.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="160" column="39" selection-start-line="160" selection-start-column="39" selection-end-line="160" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="519" column="35" selection-start-line="519" selection-start-column="35" selection-end-line="519" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

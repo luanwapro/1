@@ -1,0 +1,302 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Cart</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="OneTech shop project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link href="{% static 'plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/cart_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/cart_responsive.css' %}">
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+</head>
+
+<body>
+
+<style>
+#table{
+	margin: auto;
+	margin-top: 2%;
+	width:90%;
+}
+#table table{
+	width:100%;
+	font-family:"Times New Roman";
+}
+
+#table table th{
+	text-align:center;
+	border:2px solid black;
+	font-size:20px;
+}
+#table table td{
+	border:2px solid black;
+	padding:10px;
+	line-height:inherit;
+	font-size:16px;
+	color:#000;
+}
+</style>
+
+<div class="super_container">
+	
+	<!-- Header -->
+	
+	<header class="header">
+
+		<!-- Top Bar -->
+
+		<div class="top_bar">
+			<div class="container">
+				<div class="row">
+					<div class="col d-flex flex-row">
+						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{% static 'images/phone.png' %}" alt=""></div>+84 37445 1155</div>
+						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{% static 'images/mail.png' %}" alt=""></div><a href="mailto:fastsales@gmail.com">linhvip1998@gmail.com</a></div>
+						<div class="top_bar_content ml-auto">
+
+							<div class="top_bar_user">
+								<div class="user_icon"><img src="{% static 'images/user.svg' %}" alt=""></div>
+								{% if user.username %}
+                                    <div><a>Xin chào {{ user.username }}</a></div>
+                                    <div><a href="{% url 'logoutship' %}">Đăng xuất</a></div>
+                                 {% else %}
+                                  <div><a href=login>Đăng nhập</a></div>
+								<div><a href="../../register/">Đăng ký</a></div>
+                                {% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</div>
+
+		<!-- Header Main -->
+
+		<div class="header_main">
+			<div class="container">
+				<div class="row">
+
+					<!-- Logo -->
+					<div class="col-lg-2 col-sm-3 col-3 order-1">
+						<div class="logo_container">
+							<div class="logo"><a href="#">Shipper</a></div>
+						</div>
+					</div>
+
+					<!-- Search -->
+					
+
+					<!-- Wishlist -->
+					
+				</div>
+			</div>
+		</div>
+		
+		<!-- Main Navigation -->
+
+		<nav class="main_nav">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						
+						<div class="main_nav_content d-flex flex-row">
+
+							<!-- Categories Menu -->
+
+
+
+							<!-- Main Nav Menu -->
+
+
+
+							<!-- Menu Trigger -->
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		
+		<!-- Menu -->
+
+
+
+	</header>
+
+	<!-- Cart -->
+
+	<center>
+		<h1>CHI TIẾT ĐƠN HÀNG</H1>
+		{% for item in order %}
+    <form style="margin-left: 60px;border-radius: 10px;border: #333333 1px solid;margin-top: 20px;width: 85%; margin-bottom: 20px;padding: 10px ">
+        <p><b>Họ tên khách hàng:</b> {{ item.order.full_name }}</p>
+        <p><b>Phương thức thanh toán:</b> {{ item.method }}</p>
+
+
+            <table style="border: 1px solid">
+            <tr style="border: 1px solid">
+            <th style="color: #0069d9;border: 1px solid ">Tên sản phẩm</th>
+            <th style="color: #0069d9;border: 1px solid ">Số lượng</th>
+            <th style="color: #0069d9;border: 1px solid ">Giá</th>
+            </tr>
+                {% for prod in product %}
+            <tr style="border: 1px solid">
+                <th style="border: 1px solid">{{ prod.item.title }}</th>
+                <th style="border: 1px solid">{{ prod.quantity }}</th>
+                <th style="border: 1px solid">{{ prod.item.price }}</th>
+            </tr>
+            {% endfor %}
+	</table>
+
+
+            <p>Tổng hóa đơn: {{ item.order.total_order }}</p>
+            <p>Phí ship: {{ item.unitship.ship_fee }}</p>
+            <p style="color:red ">Thành tiền: {{ item.total_ship }}</p>
+        {% endfor %}
+            <form method="GET" action="">
+                {% if a.is_completed == True %}
+                <p><input type="checkbox" name="completed" id="completed" value=1 checked>Đã giao</p>
+                {% else %}
+                <p><input type="checkbox" name="completed" id="completed" value=1>Đã giao</p>
+                {% endif %}
+            <input type="submit" id="btn" value="Trở về trang danh sách">
+            </form>
+	</form>
+
+	</center>
+    <script>
+
+    </script>
+
+	<!-- Newsletter -->
+
+
+	<!-- Footer -->
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-lg-3 footer_col">
+					<div class="footer_column footer_contact">
+						<div class="logo_container">
+							<div class="logo"><a href="#">ViLo'sTech</a></div>
+						</div>
+						<div class="footer_title">Got Question? Call Us 24/7</div>
+						<div class="footer_phone">+84 37445 1155</div>
+						<div class="footer_contact_text">
+							<p>Đường Nguyễn Huệ, phường 2 thành phố Vĩnh Long</p>
+							<p>Trường Sư phạm Kỹ thuật Vĩnh Long, VN</p>
+						</div>
+						<div class="footer_social">
+							<ul>
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+								<li><a href="#"><i class="fab fa-google"></i></a></li>
+								<li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 offset-lg-2">
+					<div class="footer_column">
+						<div class="footer_title">Find it Fast</div>
+						<ul class="footer_list">
+							<li><a href="#">Computers & Laptops</a></li>
+							<li><a href="#">Cameras & Photos</a></li>
+							<li><a href="#">Hardware</a></li>
+							<li><a href="#">Smartphones & Tablets</a></li>
+							<li><a href="#">TV & Audio</a></li>
+						</ul>
+						<div class="footer_subtitle">Gadgets</div>
+						<ul class="footer_list">
+							<li><a href="#">Car Electronics</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-lg-2">
+					<div class="footer_column">
+						<ul class="footer_list footer_list_2">
+							<li><a href="#">Video Games & Consoles</a></li>
+							<li><a href="#">Accessories</a></li>
+							<li><a href="#">Cameras & Photos</a></li>
+							<li><a href="#">Hardware</a></li>
+							<li><a href="#">Computers & Laptops</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-lg-2">
+					<div class="footer_column">
+						<div class="footer_title">Customer Care</div>
+						<ul class="footer_list">
+							<li><a href="#">My Account</a></li>
+							<li><a href="#">Order Tracking</a></li>
+							<li><a href="#">Wish List</a></li>
+							<li><a href="#">Customer Services</a></li>
+							<li><a href="#">Returns / Exchange</a></li>
+							<li><a href="#">FAQs</a></li>
+							<li><a href="#">Product Support</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</footer>
+
+	<!-- Copyright -->
+
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+
+					<div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
+						<div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</div>
+						<div class="logos ml-sm-auto">
+							<ul class="logos_list">
+								<li><a href="#"><img src="{% static 'images/logos_1.png' %}" alt=""></a></li>
+								<li><a href="#"><img src="{% static 'images/logos_2.png' %}" alt=""></a></li>
+								<li><a href="#"><img src="{% static 'images/logos_3.png' %}" alt=""></a></li>
+								<li><a href="#"><img src="{% static 'images/logos_4.png' %}" alt=""></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
+<script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'js/cart_custom.js' %}"></script>
+</body>
+
+</html>
+<script>
+    var temp ={{ temp }};
+    if(temp!=0)
+    {
+        window.location="../../../";
+    }
+</script>
